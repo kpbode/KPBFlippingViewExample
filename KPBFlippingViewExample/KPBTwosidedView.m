@@ -96,6 +96,7 @@
 
 - (void)performFlipWithFrontViewAnimationValues:(NSArray *)frontViewAnimationValues
                         backViewAnimationValues:(NSArray *)backViewAnimationValues
+                                          delay:(NSTimeInterval)delay
                                 completionBlock:(void (^)(void))completionBlock
 {
     self.flipCompletionBlock = completionBlock;
@@ -120,12 +121,6 @@
     backViewAnimation.delegate = self;
     backViewAnimation.values = backViewAnimationValues;
     
-    _frontView.layer.transform = [[frontViewAnimation.values lastObject] CATransform3DValue];
-    _backView.layer.transform = [[backViewAnimation.values lastObject] CATransform3DValue];
-    
-    [_frontView.layer addAnimation:frontViewAnimation forKey:kCATransition];
-    [_backView.layer addAnimation:backViewAnimation forKey:kCATransition];
-    
     CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     scaleAnimation.removedOnCompletion = YES;
@@ -139,13 +134,31 @@
                               [NSValue valueWithCATransform3D:CATransform3DIdentity],
                               ];
     
-    [self.layer addAnimation:scaleAnimation forKey:@"cameraAnimation"];
+    // fire animations
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        _frontView.layer.transform = [[frontViewAnimation.values lastObject] CATransform3DValue];
+        _backView.layer.transform = [[backViewAnimation.values lastObject] CATransform3DValue];
+        
+        [_frontView.layer addAnimation:frontViewAnimation forKey:kCATransition];
+        [_backView.layer addAnimation:backViewAnimation forKey:kCATransition];
+        
+        [self.layer addAnimation:scaleAnimation forKey:@"cameraAnimation"];
+    });
+    
 }
 
 - (void)flipWithCompletion:(void (^)(void))completion
 {
+    [self flipWithDelay:0. completion:completion];
+}
+
+- (void)flipWithDelay:(NSTimeInterval)delay completion:(void (^)(void))completion
+{
     [self performFlipWithFrontViewAnimationValues:[self flipFrontViewAnimationValues]
                           backViewAnimationValues:[self flipBackViewAnimationValues]
+                                            delay:delay
                                   completionBlock:completion];
     
 }
@@ -164,8 +177,15 @@
 
 - (void)flipBackWithCompletion:(void (^)(void))completion
 {
+    [self flipBackWithDelay:.0 completion:completion];
+}
+
+- (void)flipBackWithDelay:(NSTimeInterval)delay
+               completion:(void (^)(void))completion
+{
     [self performFlipWithFrontViewAnimationValues:[self flipBackFrontViewAnimationValues]
                           backViewAnimationValues:[self flipBackBackViewAnimationValues]
+                                            delay:delay
                                   completionBlock:completion];
 }
 

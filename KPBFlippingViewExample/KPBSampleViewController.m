@@ -54,7 +54,7 @@
         [UIView animateWithDuration:.2 animations:^{
             _targetView.center = newCenter;
         } completion:^(BOOL finished) {
-            [_targetView flipWithCompletion:^{
+            [_targetView flipWithDelay:.2 completion:^{
                 self.viewFlipped = YES;
             }];            
         }];
@@ -64,7 +64,7 @@
         newCenter.y += 200.f;
         
         [_targetView flipBackWithCompletion:^{
-            [UIView animateWithDuration:.2 animations:^{
+            [UIView animateWithDuration:.2 delay:.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 _targetView.center = newCenter;
             } completion:^(BOOL finished) {
                 self.viewFlipped = NO;
