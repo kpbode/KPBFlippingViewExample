@@ -23,8 +23,18 @@
 - (void)loadView
 {
     UIView *containerView = [[UIView alloc] initWithFrame:CGRectZero];
+    containerView.backgroundColor = [UIColor greenColor];
     
-    KPBTwosidedView *targetView = [[KPBTwosidedView alloc] initWithFrame:CGRectMake(40.f, 240.f, 240.f, 360.f)];
+    KPBTwosidedView *targetView = [[KPBTwosidedView alloc] initWithFrame:CGRectMake(40.f, 240.f, 240.f, 334.f)];
+    
+    UIImage *frontCardImage = [UIImage imageNamed:@"front_card"];
+    UIImageView *frontCardImageView = [[UIImageView alloc] initWithImage:frontCardImage];
+    targetView.frontView = frontCardImageView;
+    
+    
+    UIImage *backCardImage = [UIImage imageNamed:@"back_card"];
+    UIImageView *backCardImageView = [[UIImageView alloc] initWithImage:backCardImage];
+    targetView.backView = backCardImageView;
     
     [containerView addSubview:targetView];
     self.targetView = targetView;

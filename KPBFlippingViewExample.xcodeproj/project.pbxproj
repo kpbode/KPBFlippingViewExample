@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A77BD31C1743724B00A1900E /* back_card.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BD3181743724B00A1900E /* back_card.png */; };
+		A77BD31D1743724B00A1900E /* back_card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BD3191743724B00A1900E /* back_card@2x.png */; };
+		A77BD31E1743724B00A1900E /* front_card.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BD31A1743724B00A1900E /* front_card.png */; };
+		A77BD31F1743724B00A1900E /* front_card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A77BD31B1743724B00A1900E /* front_card@2x.png */; };
 		CB57F748173811F900D253F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB57F747173811F900D253F9 /* UIKit.framework */; };
 		CB57F74A173811F900D253F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB57F749173811F900D253F9 /* Foundation.framework */; };
 		CB57F74C173811F900D253F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB57F74B173811F900D253F9 /* CoreGraphics.framework */; };
@@ -37,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A77BD3181743724B00A1900E /* back_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_card.png; sourceTree = "<group>"; };
+		A77BD3191743724B00A1900E /* back_card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_card@2x.png"; sourceTree = "<group>"; };
+		A77BD31A1743724B00A1900E /* front_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_card.png; sourceTree = "<group>"; };
+		A77BD31B1743724B00A1900E /* front_card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front_card@2x.png"; sourceTree = "<group>"; };
 		CB57F744173811F900D253F9 /* KPBFlippingViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPBFlippingViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB57F747173811F900D253F9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CB57F749173811F900D253F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +96,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A77BD3171743724100A1900E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A77BD3181743724B00A1900E /* back_card.png */,
+				A77BD3191743724B00A1900E /* back_card@2x.png */,
+				A77BD31A1743724B00A1900E /* front_card.png */,
+				A77BD31B1743724B00A1900E /* front_card@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		CB57F73B173811F900D253F9 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +141,7 @@
 		CB57F74D173811F900D253F9 /* KPBFlippingViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				A77BD3171743724100A1900E /* Images */,
 				CB57F756173811F900D253F9 /* KPBAppDelegate.h */,
 				CB57F757173811F900D253F9 /* KPBAppDelegate.m */,
 				CB57F74E173811F900D253F9 /* Supporting Files */,
@@ -242,6 +262,10 @@
 				CB57F75A173811F900D253F9 /* Default.png in Resources */,
 				CB57F75C173811F900D253F9 /* Default@2x.png in Resources */,
 				CB57F75E173811F900D253F9 /* Default-568h@2x.png in Resources */,
+				A77BD31C1743724B00A1900E /* back_card.png in Resources */,
+				A77BD31D1743724B00A1900E /* back_card@2x.png in Resources */,
+				A77BD31E1743724B00A1900E /* front_card.png in Resources */,
+				A77BD31F1743724B00A1900E /* front_card@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

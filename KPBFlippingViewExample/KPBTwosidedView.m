@@ -2,8 +2,6 @@
 
 @interface KPBTwosidedView ()
 
-@property (nonatomic, weak) UIView *frontView;
-@property (nonatomic, weak) UIView *backView;
 @property (nonatomic, copy) void (^flipCompletionBlock)();
 
 @end
@@ -17,32 +15,55 @@
     {
         
         UILabel *frontView = [[UILabel alloc] initWithFrame:self.bounds];
-        frontView.layer.doubleSided = NO;
-        frontView.layer.cornerRadius = 20.f;
         frontView.backgroundColor = [UIColor greenColor];
         frontView.text = @"Front";
         frontView.textAlignment = NSTextAlignmentCenter;
         frontView.textColor = [UIColor blackColor];
         frontView.font = [UIFont fontWithName:@"HelveticaNeue" size:24.f];
-        
-        [self addSubview:frontView];
         self.frontView = frontView;
         
         UILabel *backView = [[UILabel alloc] initWithFrame:self.bounds];
-        backView.layer.doubleSided = NO;
-        backView.layer.cornerRadius = 20.f;
-        backView.layer.transform = CATransform3DMakeRotation(M_PI, 0.f, 1.f, 0.f);
         backView.backgroundColor = [UIColor redColor];
         backView.text = @"Back";
         backView.textAlignment = NSTextAlignmentCenter;
         backView.textColor = [UIColor blackColor];
         backView.font = [UIFont fontWithName:@"HelveticaNeue" size:24.f];
-        
-        [self addSubview:backView];
         self.backView = backView;
         
     }
     return self;
+}
+
+- (void)setFrontView:(UIView *)frontView
+{
+    if (frontView == nil) return;
+    if (_frontView != nil)
+    {
+        [_frontView removeFromSuperview];
+    }
+    [self prepareLayer:frontView.layer];
+    [self addSubview:frontView];
+    _frontView = frontView;
+}
+
+- (void)setBackView:(UIView *)backView
+{
+    if (backView == nil) return;
+    if (_backView != nil)
+    {
+        [_backView removeFromSuperview];
+    }
+    [self prepareLayer:backView.layer];
+    backView.layer.transform = CATransform3DMakeRotation(M_PI, 0.f, 1.f, 0.f);
+    [self addSubview:backView];
+    _backView = backView;
+}
+
+- (void)prepareLayer:(CALayer *)layer
+{
+    layer.doubleSided = NO;
+    layer.shouldRasterize = YES;
+    layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
 - (NSValue *)transformValueWithRotation:(CGFloat)rotation
