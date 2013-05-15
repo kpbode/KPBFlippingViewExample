@@ -21,6 +21,9 @@
 		CB57F768173811FA00D253F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB57F749173811F900D253F9 /* Foundation.framework */; };
 		CB57F770173811FA00D253F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB57F76E173811FA00D253F9 /* InfoPlist.strings */; };
 		CB57F773173811FA00D253F9 /* KPBFlippingViewExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB57F772173811FA00D253F9 /* KPBFlippingViewExampleTests.m */; };
+		CB57F77E1738122000D253F9 /* KPBSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB57F77D1738122000D253F9 /* KPBSampleViewController.m */; };
+		CB57F7801738125C00D253F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB57F77F1738125C00D253F9 /* QuartzCore.framework */; };
+		CB57F7831738135F00D253F9 /* KPBTwosidedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB57F7821738135F00D253F9 /* KPBTwosidedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,11 @@
 		CB57F76F173811FA00D253F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB57F771173811FA00D253F9 /* KPBFlippingViewExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KPBFlippingViewExampleTests.h; sourceTree = "<group>"; };
 		CB57F772173811FA00D253F9 /* KPBFlippingViewExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KPBFlippingViewExampleTests.m; sourceTree = "<group>"; };
+		CB57F77C1738122000D253F9 /* KPBSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPBSampleViewController.h; sourceTree = "<group>"; };
+		CB57F77D1738122000D253F9 /* KPBSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPBSampleViewController.m; sourceTree = "<group>"; };
+		CB57F77F1738125C00D253F9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CB57F7811738135F00D253F9 /* KPBTwosidedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPBTwosidedView.h; sourceTree = "<group>"; };
+		CB57F7821738135F00D253F9 /* KPBTwosidedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPBTwosidedView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB57F7801738125C00D253F9 /* QuartzCore.framework in Frameworks */,
 				CB57F748173811F900D253F9 /* UIKit.framework in Frameworks */,
 				CB57F74A173811F900D253F9 /* Foundation.framework in Frameworks */,
 				CB57F74C173811F900D253F9 /* CoreGraphics.framework in Frameworks */,
@@ -101,6 +110,7 @@
 		CB57F746173811F900D253F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB57F77F1738125C00D253F9 /* QuartzCore.framework */,
 				CB57F747173811F900D253F9 /* UIKit.framework */,
 				CB57F749173811F900D253F9 /* Foundation.framework */,
 				CB57F74B173811F900D253F9 /* CoreGraphics.framework */,
@@ -115,6 +125,10 @@
 				CB57F756173811F900D253F9 /* KPBAppDelegate.h */,
 				CB57F757173811F900D253F9 /* KPBAppDelegate.m */,
 				CB57F74E173811F900D253F9 /* Supporting Files */,
+				CB57F77C1738122000D253F9 /* KPBSampleViewController.h */,
+				CB57F77D1738122000D253F9 /* KPBSampleViewController.m */,
+				CB57F7811738135F00D253F9 /* KPBTwosidedView.h */,
+				CB57F7821738135F00D253F9 /* KPBTwosidedView.m */,
 			);
 			path = KPBFlippingViewExample;
 			sourceTree = "<group>";
@@ -264,6 +278,8 @@
 			files = (
 				CB57F754173811F900D253F9 /* main.m in Sources */,
 				CB57F758173811F900D253F9 /* KPBAppDelegate.m in Sources */,
+				CB57F77E1738122000D253F9 /* KPBSampleViewController.m in Sources */,
+				CB57F7831738135F00D253F9 /* KPBTwosidedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +452,7 @@
 				CB57F778173811FA00D253F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB57F779173811FA00D253F9 /* Build configuration list for PBXNativeTarget "KPBFlippingViewExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +461,7 @@
 				CB57F77B173811FA00D253F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
